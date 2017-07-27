@@ -1,0 +1,27 @@
+.login-bg{
+	padding-top: 100px;
+	background: url(../img/loginBg.jpg) no-repeat;
+	background-size: cover;
+	background-position: center;
+}
+.login-box{
+	max-width: 460px;
+	background: #fff;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+}
+.login-photo{
+	width: 120px;
+	height: 120px;
+	margin: auto;
+	margin-bottom: 40px;
+	margin-top: 20px;
+}
+.login-box .checkbox{
+	color: #bcc2c6;
+}
+.login-box button{
+	margin: 30px 0 10px;
+	height: 40px;
+}

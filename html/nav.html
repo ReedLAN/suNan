@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<link rel="stylesheet" type="text/css" href="../css/bootstrap-theme.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../font-awesome/css/font-awesome.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/style.css"/>
+		<title>顶部</title>
+	</head>
+	<body>
+		<div class="leftNav" id="leftNav">
+			<div class="login-photo text-center">
+				<img src="../../img/login-logo.png"/>
+			</div>
+			<ul class="leftNavBox">
+				<li class="primaryBox nav-active">
+					<a class="primaryTitle">
+						<i class="fontIcon icon-tasks"></i>
+						<span>项目管理</span>
+						<i class="icon-angle-down iconArrow"></i>
+						<i class="icon-angle-up iconArrow"></i>
+					</a>
+					<ul class="secondaryBox">
+						<li class="secondaryTitle active"><a>项目创建与管理</a></li>
+						<li class="secondaryTitle"><a>项目类型管理</a></li>
+					</ul>
+				</li>
+				<li class="primaryBox">
+					<a class="primaryTitle">
+						<i class="fontIcon  icon-leaf"></i>
+						<span>用户与账号管理</span>
+						<i class="icon-angle-down iconArrow"></i>
+						<i class="icon-angle-up iconArrow"></i>
+					</a>
+					<ul class="secondaryBox">
+						<li class="secondaryTitle"><a>用户管理</a></li>
+						<li class="secondaryTitle"><a>账号管理</a></li>
+						<li class="secondaryTitle"><a>离职人员</a></li>
+						<li class="secondaryTitle"><a>职业技能库管理</a></li>
+					</ul>
+				</li>
+				<li class="primaryBox">
+					<a class="primaryTitle">
+						<i class="fontIcon  icon-beaker"></i>
+						<span>商品与库存管理</span>
+						<i class="icon-angle-down iconArrow"></i>
+						<i class="icon-angle-up iconArrow"></i>
+					</a>
+					<ul class="secondaryBox">
+						<li class="secondaryTitle"><a>商品创建与管理</a></li>
+						<li class="secondaryTitle"><a>商品类别</a></li>
+						<li class="secondaryTitle"><a>计量单位</a></li>
+						<li class="secondaryTitle"><a>库存管理</a></li>
+					</ul>
+				</li>
+				<li class="primaryBox">
+					<a class="primaryTitle">
+						<i class="fontIcon  icon-comments"></i>
+						<span>论坛管理</span>
+					</a>
+				</li>
+				<li class="primaryBox">
+					<a class="primaryTitle">
+						<i class="fontIcon  icon-time"></i>
+						<span>员工考勤</span>
+					</a>
+				</li>
+				<li class="primaryBox">
+					<a class="primaryTitle">
+						<i class="fontIcon icon-group"></i>
+						<span>人员分布</span>
+					</a>
+				</li>
+			</ul>
+		</div>
+		<div class="rightCont">
+			<nav class="navbar navbar-default">
+				<div class="container-fluid">
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle" id="switchBtn" value="switch">
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+					</div>
+					<div class="navbar-collapse">
+						<form class="navbar-form navbar-left">
+							<div class="form-group">
+								<input type="text" class="form-control search" placeholder="搜索...">
+							</div>
+						</form>
+						<ul class="nav navbar-nav navbar-right">
+							<li>
+								<a href="#" class="profile_img">
+									<img src="../../img/profile_small.jpg">
+								</a>
+							</li>
+							<li class="dropdown">
+								<a id="userAccount">琳达<span class="caret"></span></a>
+								<ul class="selectBox topSelect" id="accountChange">
+									<li data-toggle="modal" data-target="#switchAccModal" id="switchAcc">
+										<a><i class="icon-exchange m-r-10"></i>切换帐号</a>
+									</li>
+									<li data-toggle="modal" data-target="#logoutModal" id="logout">
+										<a><i class="icon-off m-r-10"></i>注销</a>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+		</div>
+		
+		
+		<!-- 切换账号Modal -->
+		<div class="modal fade" id="switchAccModal" tabindex="-1" role="dialog" aria-labelledby="myswitchAcc">
+			<div class="middle">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+							<h4 class="modal-title" id="myswitchAcc">切换账号</h4>
+						</div>
+						<div class="modal-body">
+							<table class="table table-hover">
+						      	<thead>
+							        <tr>							       
+							          	<th>序号</th>
+							          	<th>用户名</th>
+							          	<th>账号类型</th>
+							          	<th class="checkStyle"></th>
+							        </tr>
+						      	</thead>
+						      	<tbody>
+							        <tr>							          
+							          	<th scope="row">1</th>
+							          	<td>Otto</td>
+							          	<td>销售人员</td>
+							          	<td>
+							          		<div class="checkOne">
+							          			<i class="icon-ok"></i>
+							          		</div>
+							          	</td>
+							        </tr>
+							        <tr>							          
+							          	<th scope="row">2</td>
+							          	<td>Thornton</td>
+							          	<td>会计</td>
+							          	<td>
+							          		<div class="checkOne">
+							          			<i class="icon-ok"></i>
+							          		</div>
+							          	</td>
+							        </tr>
+							        <tr>							          
+							          	<th scope="row">3</th>
+							          	<td>the Bird</td>
+							          	<td>财务总监</td>
+							          	<td>
+							          		<div class="checkOne">
+							          			<i class="icon-ok"></i>
+							          		</div>
+							          	</td>
+							        </tr>
+						      	</tbody>
+						    </table>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+							<button type="button" class="btn btn-success">确定</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 注销Modal -->
+		<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="mylogout">
+	</body>
+
+    <script type="text/javascript" src="../js/jquery-3.1.1.js" ></script>
+    <script type="text/javascript" src="../../js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="../js/general.js" ></script>
+</html>

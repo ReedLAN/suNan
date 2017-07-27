@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<link rel="stylesheet" type="text/css" href="../../css/bootstrap-theme.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../../font-awesome/css/font-awesome.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/style.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/laypage.css"/>
+		<link rel="shortcut icon" type="image/x-icon" href="../../img/login-logo.png" media="screen"  />
+		<title>项目管理</title>
+		<style>
+			.toolText>li:first-child{
+				width: 50px;
+			}			
+		</style>
+	</head>
+	<body>
+		<div class="leftNav" id="leftNav">
+			<div class="login-photo text-center">
+				<img src="../../img/login-logo.png"/>
+			</div>
+			<ul class="leftNavBox">
+				<li class="primaryBox nav-active active">
+					<a class="primaryTitle">
+						<i class="fontIcon icon-tasks"></i>
+						<span>项目管理</span>
+						<i class="icon-angle-down iconArrow"></i>
+						<i class="icon-angle-up iconArrow"></i>
+					</a>
+					<ul class="secondaryBox">
+						<li class="secondaryTitle active"><a href="projectManage.html">项目创建与管理</a></li>
+						<li class="secondaryTitle"><a href="projectTypeManage.html">项目类型管理</a></li>
+					</ul>
+				</li>
+				<li class="primaryBox">
+					<a class="primaryTitle">
+						<i class="fontIcon  icon-leaf"></i>
+						<span>用户与账号管理</span>
+						<i class="icon-angle-down iconArrow"></i>
+						<i class="icon-angle-up iconArrow"></i>
+					</a>
+					<ul class="secondaryBox">
+						<li class="secondaryTitle"><a href="../user/userManage.html">用户管理</a></li>
+						<li class="secondaryTitle"><a>账号管理</a></li>
+						<li class="secondaryTitle"><a>离职人员</a></li>
+						<li class="secondaryTitle"><a>职业技能库管理</a></li>
+					</ul>
+				</li>
+				<li class="primaryBox">
+					<a class="primaryTitle">
+						<i class="fontIcon  icon-beaker"></i>
+						<span>商品与库存管理</span>
+						<i class="icon-angle-down iconArrow"></i>
+						<i class="icon-angle-up iconArrow"></i>
+					</a>
+					<ul class="secondaryBox">
+						<li class="secondaryTitle"><a>商品创建与管理</a></li>
+						<li class="secondaryTitle"><a>商品类别</a></li>
+						<li class="secondaryTitle"><a>计量单位</a></li>
+						<li class="secondaryTitle"><a>库存管理</a></li>
+					</ul>
+				</li>
+				<li class="primaryBox">
+					<a class="primaryTitle">
+						<i class="fontIcon  icon-comments"></i>
+						<span>论坛管理</span>
+					</a>
+				</li>
+				<li class="primaryBox">
+					<a class="primaryTitle">
+						<i class="fontIcon  icon-time"></i>
+						<span>员工考勤</span>
+					</a>
+				</li>
+				<li class="primaryBox">
+					<a class="primaryTitle">
+						<i class="fontIcon icon-group"></i>
+						<span>人员分布</span>
+					</a>
+				</li>
+			</ul>
+		</div>
+		<div class="rightCont">
+			<nav class="navbar navbar-default">
+				<div class="container-fluid">
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle" id="switchBtn" value="switch">
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+					</div>
+					<div class="navbar-collapse">
+						<!--<form class="navbar-form navbar-left">
+							<div class="form-group">
+								<input type="text" class="form-control search" placeholder="搜索...">
+							</div>
+						</form>-->
+						<ul class="nav navbar-nav navbar-right">
+							<li>
+								<a href="#" class="profile_img">
+									<img src="../../img/profile_small.jpg">
+								</a>
+							</li>
+							<li class="dropdown">
+								<a id="userAccount">琳达<span class="caret"></span></a>
+								<ul class="selectBox topSelect" id="accountChange">
+									<li data-toggle="modal" data-target="#switchAccModal" id="switchAcc">
+										<a><i class="icon-exchange m-r-10"></i>切换帐号</a>
+									</li>
+									<li data-toggle="modal" data-target="#logoutModal" id="logout">
+										<a><i class="icon-off m-r-10"></i>注销</a>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+		
+			<div class="containerBox contentDiv">
+				<ul class="pageTitle">
+					<li class="text-left"><h4>项目创建与管理</h4></li>
+					<li class="text-right bread">
+						<span>项目管理</span> / <a href="projectManage.html"><span class="text-success">项目创建与管理</span></a>
+					</li>
+				</ul>
+				
+				<div class="panel panel-default">
+					<div class="panel-heading">
+					    <h4 class="panel-title">项目列表</h4>					    
+				  		<div class="iconInput dropBox select-group" id="itemList">					  		
+				  			<input type="text"  class="form-control form-select" readonly="readonly" placeholder="排序方式" name="project">
+				  			<i class="glyphicon glyphicon-triangle-bottom iconRight select" aria-hidden="true"></i>
+				    		<div class="selectBox generalSelect" id="divSelect" >
+				    			<ul id="selectContent" class="selectContent">
+								    <li value="0">按类型</li>
+								    <li value="1">按时间</li>
+								    <li value="2">按ID</li>
+							    </ul>
+							</div>
+				    	</div>					  	
+					</div>
+					<div class="panel-body">
+					    <div class="panel-tool">					    	
+				    		<ul class="toolText">
+				    			<li><span>状态：</span></li>
+				    			<li>
+				    				<ul class="toolUnit">
+				    					<li class="active">全部</li>
+						    			<li>已完成</li>
+						    			<li>进行中</li>
+						    			<li>未开始</li>
+				    				</ul>
+				    			</li>				    			
+				    		</ul>					    	
+					    	<div class="toolDiv pull-right">
+					    		<form class="searchSmall">
+									<div class="form-group">
+										<input type="text" class="form-control search" placeholder="搜索...">
+									</div>
+								</form>
+								<a href="createProject.html"><button class="btn btn-success"><i class="icon-add"></i>创建新项目</button></a>
+					    	</div>
+					    </div>
+						<table class="table typeList">
+					      	<thead>
+						        <tr>							       
+						          	<th>ID</th>
+						          	<th>项目名称</th>
+						          	<th>类型</th>
+						          	<th>周期</th>
+						          	<th>状态</th>
+						          	<th class="operation">操作</th>
+						        </tr>
+					      	</thead>
+					      	<tbody class="list-tbody">
+						        						          						       
+					      	</tbody>
+					    </table>
+						
+						<!--分页-->
+						<nav aria-label="Page navigation" class="pageNav pull-right">
+						  	<ul id="pagination">
+							    
+						  	</ul>
+						</nav>
+												
+					</div>
+				</div>
+			</div>
+			
+		</div>				
+		
+		<!-- 切换账号Modal -->
+		<div class="modal fade" id="switchAccModal" tabindex="-1" role="dialog" aria-labelledby="myswitchAcc">
+			<div class="middle">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+							<h4 class="modal-title" id="myswitchAcc">切换账号</h4>
+						</div>
+						<div class="modal-body">
+							<table class="table">
+						      	<thead>
+							        <tr>							       
+							          	<th>序号</th>
+							          	<th>用户名</th>
+							          	<th>账号类型</th>
+							          	<th class="checkStyle"></th>
+							        </tr>
+						      	</thead>
+						      	<tbody>
+							        <tr>							          
+							          	<th scope="row">1</th>
+							          	<td>Otto</td>
+							          	<td>销售人员</td>
+							          	<td>
+							          		<div class="checkOne">
+							          			<i class="icon-ok"></i>
+							          		</div>
+							          	</td>
+							        </tr>
+							        <tr>							          
+							          	<th scope="row">2</td>
+							          	<td>Thornton</td>
+							          	<td>会计</td>
+							          	<td>
+							          		<div class="checkOne">
+							          			<i class="icon-ok"></i>
+							          		</div>
+							          	</td>
+							        </tr>
+							        <tr>							          
+							          	<th scope="row">3</th>
+							          	<td>the Bird</td>
+							          	<td>财务总监</td>
+							          	<td>
+							          		<div class="checkOne">
+							          			<i class="icon-ok"></i>
+							          		</div>
+							          	</td>
+							        </tr>
+						      	</tbody>
+						    </table>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+							<button type="button" class="btn btn-success">确定</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 注销Modal -->
+		<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="mylogout">
+			<div class="middle">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+							<h4 class="modal-title" id="mylogout">注销</h4>
+						</div>
+						<div class="modal-body">
+							您确定要退出吗？
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+							<button type="button" class="btn btn-success" onclick="logout();">确定</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	
+	
+	
+    <script type="text/javascript" src="../../js/plugin/jquery-3.1.1.js" ></script>
+	<script type="text/javascript" src="../../js/plugin/bootstrap.min.js"></script>
+	<script type="text/javascript" src="../../js/plugin/laypage.js"></script>
+	<script type="text/javascript" src="../../js/general.js" ></script>
+	<script type="text/javascript" src="../../js/projectManage.js"></script>
+	
+	<script>
+		var toolLeft = $('.panel-tool').innerWidth()-$('.toolDiv').innerWidth()-20;
+		$('.toolText').css('width',toolLeft);
+		showTable();
+	</script>
+</html>

@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<link rel="stylesheet" type="text/css" href="../../css/bootstrap-theme.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../../font-awesome/css/font-awesome.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/style.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/foundation-datepicker.css" />
+		<link rel="shortcut icon" type="image/x-icon" href="../../img/login-logo.png" media="screen"  />
+		<title>创建新用户</title>
+		<style>
+			.userPhotoBox{
+				width: 140px;				
+				margin: 30px 0 0 50px;
+			}
+			.userPhotoBox img,
+			.userPhotoBox .btn{
+				width: 100%;
+			}
+			.userPhotoBox img{
+				border-radius: 10px;
+				-moz-border-radius: 10px;
+				-webkit-border-radius: 10px;
+			}
+			.userPhotoBox .btn{
+				margin-top: 20px;
+			}
+			.creatBox{
+				width: 100%;
+				padding-left: 300px;
+				margin-top: -194px;
+				box-sizing: border-box;
+			}
+			.col-input{
+				padding-right: 50px;
+			}
+			.birthday .birthday-input,
+			.birthday .birthday-line{
+				display: inline-block !important;
+				float: left;
+			}
+			.birthday .birthday-input{
+				width: 30%;
+			}
+			.birthday .birthday-line{
+				width: 5%;
+				text-align: center;
+			}
+			.birthday .birthday-line span{
+				line-height: 40px;
+
+			}
+		</style>
+	</head>
+	<body>
+		<div class="leftNav" id="leftNav">
+			<div class="login-photo text-center">
+				<img src="../../img/login-logo.png"/>
+			</div>
+			<ul class="leftNavBox">
+				<li class="primaryBox">
+					<a class="primaryTitle">
+						<i class="fontIcon icon-tasks"></i>
+						<span>项目管理</span>
+						<i class="icon-angle-down iconArrow"></i>
+						<i class="icon-angle-up iconArrow"></i>
+					</a>
+					<ul class="secondaryBox">
+						<li class="secondaryTitle"><a href="../project/projectManage.html">项目创建与管理</a></li>
+						<li class="secondaryTitle"><a href="../project/projectTypeManage.html">项目类型管理</a></li>
+					</ul>
+				</li>
+				<li class="primaryBox nav-active active">
+					<a class="primaryTitle">
+						<i class="fontIcon  icon-leaf"></i>
+						<span>用户与账号管理</span>
+						<i class="icon-angle-down iconArrow"></i>
+						<i class="icon-angle-up iconArrow"></i>
+					</a>
+					<ul class="secondaryBox">
+						<li class="secondaryTitle active"><a href="userManage.html">用户管理</a></li>
+						<li class="secondaryTitle"><a>账号管理</a></li>
+						<li class="secondaryTitle"><a>离职人员</a></li>
+						<li class="secondaryTitle"><a>职业技能库管理</a></li>
+					</ul>
+				</li>
+				<li class="primaryBox">
+					<a class="primaryTitle">
+						<i class="fontIcon  icon-beaker"></i>
+						<span>商品与库存管理</span>
+						<i class="icon-angle-down iconArrow"></i>
+						<i class="icon-angle-up iconArrow"></i>
+					</a>
+					<ul class="secondaryBox">
+						<li class="secondaryTitle"><a>商品创建与管理</a></li>
+						<li class="secondaryTitle"><a>商品类别</a></li>
+						<li class="secondaryTitle"><a>计量单位</a></li>
+						<li class="secondaryTitle"><a>库存管理</a></li>
+					</ul>
+				</li>
+				<li class="primaryBox">
+					<a class="primaryTitle">
+						<i class="fontIcon  icon-comments"></i>
+						<span>论坛管理</span>
+					</a>
+				</li>
+				<li class="primaryBox">
+					<a class="primaryTitle">
+						<i class="fontIcon  icon-time"></i>
+						<span>员工考勤</span>
+					</a>
+				</li>
+				<li class="primaryBox">
+					<a class="primaryTitle">
+						<i class="fontIcon icon-group"></i>
+						<span>人员分布</span>
+					</a>
+				</li>
+			</ul>
+		</div>
+		<div class="rightCont">
+			<nav class="navbar navbar-default">
+				<div class="container-fluid">
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle" id="switchBtn" value="switch">
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+					</div>
+					<div class="navbar-collapse">
+						<!--<form class="navbar-form navbar-left">
+							<div class="form-group">
+								<input type="text" class="form-control search" placeholder="搜索...">
+							</div>
+						</form>-->
+						<ul class="nav navbar-nav navbar-right">
+							<li>
+								<a href="#" class="profile_img">
+									<img src="../../img/profile_small.jpg">
+								</a>
+							</li>
+							<li class="dropdown">
+								<a id="userAccount">琳达<span class="caret"></span></a>
+								<ul class="selectBox topSelect" id="accountChange">
+									<li data-toggle="modal" data-target="#switchAccModal" id="switchAcc">
+										<a><i class="icon-exchange m-r-10"></i>切换帐号</a>
+									</li>
+									<li data-toggle="modal" data-target="#logoutModal" id="logout">
+										<a><i class="icon-off m-r-10"></i>注销</a>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+		
+			<div class="containerBox contentDiv">
+				<ul class="pageTitle">
+					<li class="text-left"><h4>用户管理</h4></li>
+					<li class="text-right bread">
+						<span>用户与账号管理</span> / <a href="userManage.html"><span>用户管理</span></a>/ <a href="creatUser.html"><span class="text-success">创建新用户</span></a>
+					</li>
+				</ul>
+				
+				<div class="panel-parent">			
+					<div class="panel panel-default">
+						<div class="panel-heading">
+						    <h4 class="panel-title">个人信息</h4>					    				  	
+						</div>
+						<div class="panel-body">
+							<div class="pull-left">
+								<div class="userPhotoBox">
+									<img src="../../img/userPhoto.jpg" />
+									<div class="btn btn-success">上传头像</div>
+								</div>
+							</div>
+							<div class="creatBox pull-left">								
+								<form class="form-horizontal" name="basicInf" action="" method="post">
+									
+									<div class="personnelBox">
+										<div class="form-group col-group">
+										    <label for="name" class="col-text control-label"><span class="text-red m-r-5">*</span>姓名</label>
+										    <div class="col-input">
+										    	<div class="input-group">
+										      		<input type="text" class="form-control" id="name" name="name" placeholder="请填写姓名" required data-msg-required="姓名不能为空">
+										      	</div>
+										    </div>
+									    </div>
+									    <div class="form-group col-group">
+										    <label for="userGender" class="col-text control-label">性别</label>
+										    <div class="col-input">
+										    	<div class="input-group dropBox">
+										      		<input type="text" class="form-control form-select" id="userGender" name="userGender" placeholder="请选择性别">
+										      		<span class="input-group-addon select"><i class="icon icon-sort-down"></i></span>
+										      		<div class="selectBox generalSelect" style="display: none;">
+										    			<ul class="selectContent">
+														    <li>男</li>
+														    <li>女</li>
+													    </ul>
+													</div>
+										      	</div>										      	
+										    </div>
+									    </div>
+									    <div class="form-group col-group">
+										    <label for="birthday" class="col-text control-label">生日</label>
+										    <div class="col-input birthday">
+										    	<div class="input-group birthday-input dropBox" id="birthday">
+										      		<input type="text" class="form-control form-select" value="1990" id="birthday-year" name="birthday-year">
+										      		<span class="input-group-addon select"><i class="icon icon-sort-down"></i></span>
+										      		<div class="selectBox generalSelect" style="display: none;">
+										    			<ul class="selectContent">
+														    
+													    </ul>
+													</div>
+										      	</div>
+										      	<div class="birthday-line"><span>-</span></div>
+										      	<div class="input-group birthday-input dropBox">
+										      		<input type="text" class="form-control form-select" value="2" id="birthday-month" name="birthday-month">
+										      		<span class="input-group-addon select"><i class="icon icon-sort-down"></i></span>
+										      		<div class="selectBox generalSelect" style="display: none;">
+										    			<ul class="selectContent">
+														    
+													    </ul>
+													</div>
+										      	</div>
+										      	<div class="birthday-line"><span>-</span></div>
+										      	<div class="input-group birthday-input dropBox">
+										      		<input type="text" class="form-control form-select" value="1" id="birthday-day" name="birthday-day">
+										      		<span class="input-group-addon select"><i class="icon icon-sort-down"></i></span>
+										      		<div class="selectBox generalSelect" style="display: none;">
+										    			<ul class="selectContent">
+														    
+													    </ul>
+													</div>
+										      	</div>
+										    </div>
+									    </div>
+									    <div class="form-group col-group">
+										    <label for="userPlace" class="col-text control-label">籍贯</label>
+										    <div class="col-input">
+										    	<div class="input-group">
+										      		<input type="text" class="form-control" id="userPlace" name="userPlace" placeholder="请填写籍贯">
+										      	</div>
+										    </div>
+									    </div>			    							    					
+								    </div>
+								    
+									<div class="personnelBox">
+										<div class="form-group col-group">
+										    <label for="userNumber" class="col-text control-label"><span class="text-red m-r-5">*</span>员工号</label>
+										    <div class="col-input">
+										    	<div class="input-group">
+										      		<input type="text" class="form-control" id="userNumber" name="userNumber" placeholder="请填写员工号" required data-msg-required="员工号不能为空">
+										      	</div>
+										    </div>
+									    </div>
+									    <div class="form-group col-group">
+										    <label for="pos" class="col-text control-label">职务</label>
+										    <div class="col-input">
+										    	<div class="input-group">
+										      		<input type="text" class="form-control" id="position" name="position" placeholder="请填写职务">
+										      	</div>
+										    </div>
+									    </div>									   								    
+									    <div class="form-group col-group">
+										    <label for="userType" class="col-text control-label">工种</label>
+										    <div class="col-input">
+										    	<div class="input-group dropBox">
+										      		<input type="text" class="form-control form-select" id="userType" name="userType" placeholder="请选择工种">
+										      		<span class="input-group-addon select"><i class="icon icon-sort-down"></i></span>
+										      		<div class="selectBox generalSelect" style="display: none;">
+										    			<ul class="selectContent">
+														    <li>瓦工</li>
+														    <li>木工</li>
+														    <li>油工</li>
+														    <li>电工</li>
+														    <li>小工</li>
+													    </ul>
+													</div>
+										      	</div>
+										    </div>
+									    </div>
+									    <div class="form-group col-group">
+										    <label for="userState" class="col-text control-label">状态</label>
+										    <div class="col-input">
+										    	<div class="input-group dropBox">
+										      		<input type="text" class="form-control form-select" id="userState" name="userState" value="在职">
+										      		<span class="input-group-addon select"><i class="icon icon-sort-down"></i></span>
+										      		<div class="selectBox generalSelect" style="display: none;">
+										    			<ul class="selectContent">
+														    <li>在职</li>
+														    <li>离职</li>														    
+													    </ul>
+													</div>
+										      	</div>
+										    </div>
+									    </div>
+									    <div class="form-group col-group">
+										    <label for="inductionTime" class="col-text control-label">入职时间</label>
+										    <div class="col-input">
+										    	<div class="input-group selectTime">
+										      		<input type="text" class="form-control" id="inductionTime" name="inductionTime" placeholder="请选择入职时间">
+										      		<span class="input-group-addon"><i class="icon icon-calendar"></i></span>
+										      	</div>
+										    </div>
+									    </div>
+									    <div class="form-group col-group">
+										    <label for="reference" class="col-text control-label">介绍人</label>
+										    <div class="col-input">
+										    	<div class="input-group">
+										      		<input type="text" class="form-control" id="reference" name="reference" placeholder="请填写介绍人">
+										      	</div>
+										    </div>
+									    </div>
+									    <div class="form-group col-group">
+										    <label for="userSkill" class="col-text control-label">职业技能</label>
+										    <div class="col-input">
+										    	<div class="input-group">
+										      		<input type="text" class="form-control" id="userSkill" name="userSkill" placeholder="请选择职业技能">
+										      		<span class="input-group-addon select"><i class="icon icon-sort-down"></i></span>
+										      		<div class="selectBox generalSelect" style="display: none;">
+										    			<ul class="selectContent">
+														    <li>瓦工</li>
+														    <li>木工</li>
+														    <li>油工</li>
+														    <li>电工</li>
+														    <li>小工</li>
+													    </ul>
+													</div>
+										      	</div>
+										    </div>
+									    </div>
+									    <div class="form-group col-group">
+										    <label for="workCertificate" class="col-text control-label">上岗证件</label>
+										    <div class="col-input">
+										    	<div class="personnelBox">
+											    	<div class="form-group col-group" id="workCertificate">
+													    <label for="certificateName" class="col-text control-label">证件名称</label>
+													    <div class="col-input">
+													    	<div class="input-group">
+													      		<input type="text" class="form-control" id="certificateName" placeholder="请填写证件名称">													      		
+													      	</div>
+													    </div>
+												    </div>												   												   
+												    <div class="form-group col-group">
+													    <label for="deadline" class="col-text control-label">截止日期</label>
+													    <div class="col-input">
+													    	<div class="input-group selectTime">
+													      		<input type="text" class="form-control" id="deadline" placeholder="请选择截止日期">
+													      		<span class="input-group-addon"><i class="icon icon-calendar"></i></span>
+													      	</div>
+													    </div>
+												    </div>
+												    <div class="form-group col-group">
+													    <label for="certificatePhoto" class="col-text control-label">证件照</label>
+													    <div class="col-input">
+													    	<div class="input-group" id="certificatePhoto">
+													    		<div class="certificatePhotoDiv"><div class="imgDiv"><img src="../../img/profile_small.jpg" /></div></div>
+													    		<div class="certificatePhotoDiv"><div class="imgDiv"><img src="../../img/userPhoto.jpg" /></div></div>
+													      		<div class="certificatePhotoDiv defaultImg"><div class="imgDiv"><div><i class="icon icon-picture"></i>最多5张</div></div></div>
+													      	</div>
+													    </div>
+												    </div>
+												    <div class="form-group col-group">
+												    	<a href="" class="pull-right"><button class="btn btn-success"><i class="icon-add"></i>添加上岗证件</button></a>
+												    </div>
+										    	</div>
+										    </div>
+									    </div>
+								    </div>
+								    
+								    <div class="personnelBox">
+										<div class="form-group col-group">
+										    <label for="userMobile" class="col-text control-label"><span class="text-red m-r-5">*</span>手机</label>
+										    <div class="col-input">
+										    	<div class="input-group">
+										      		<input type="text" class="form-control" id="userMobile" name="userMobile" placeholder="请填写手机号码" required data-msg-required="手机号号码不能为空">
+										      	</div>
+										    </div>
+									    </div>
+									    <div class="form-group col-group">
+										    <label for="userEmail" class="col-text control-label">邮箱</label>
+										    <div class="col-input">
+										    	<div class="input-group">
+										      		<input type="text" class="form-control" id="userEmail" name="userEmail" placeholder="请填写邮箱">
+										      	</div>
+										    </div>
+									    </div>
+									    <div class="form-group col-group">
+										    <label for="userWechat" class="col-text control-label">微信</label>
+										    <div class="col-input">
+										    	<div class="input-group">
+										      		<input type="text" class="form-control" id="userWechat" name="userWechat" placeholder="请填写微信号">
+										      	</div>
+										    </div>
+									    </div>
+									    <div class="form-group col-group">
+										    <label for="userPhone1" class="col-text control-label">电话1</label>
+										    <div class="col-input">
+										    	<div class="input-group">
+										      		<input type="text" class="form-control" id="userPhone1" name="userPhone1" placeholder="请填写电话1">
+										      	</div>
+										    </div>
+									    </div>
+									    <div class="form-group col-group">
+										    <label for="userPhone2" class="col-text control-label">电话2</label>
+										    <div class="col-input">
+										    	<div class="input-group">
+										      		<input type="text" class="form-control" id="userPhone2" name="userPhone2" placeholder="请填写电话2">
+										      	</div>
+										    </div>
+									    </div>									   
+									    <div class="form-group col-group">
+										    <label for="fixedPhone" class="col-text control-label">固定电话</label>
+										    <div class="col-input">
+										    	<div class="input-group">
+										      		<input type="text" class="form-control" id="fixedPhone" name="fixedPhone" placeholder="请填写固定电话">
+										      	</div>
+										    </div>
+									    </div>
+									    <div class="form-group col-group">
+										    <label for="spousesPhone" class="col-text control-label">配偶电话</label>
+										    <div class="col-input">
+										    	<div class="input-group">
+										      		<input type="text" class="form-control" id="spousesPhone" name="spousesPhone" placeholder="请填写配偶电话">
+										      	</div>
+										    </div>
+									    </div>
+									    <div class="form-group col-group">
+										    <label for="parentsPhone" class="col-text control-label">父母电话</label>
+										    <div class="col-input">
+										    	<div class="input-group">
+										      		<input type="text" class="form-control" id="parentsPhone" name="parentsPhone" placeholder="请填写父母电话">
+										      	</div>
+										    </div>
+									    </div>
+								    </div>
+								    
+								    <div class="personnelBox">
+								    	<div class="form-group col-group">
+										    <label for="projectTime" class="col-text control-label">身份证号</label>
+										    <div class="col-input">
+										    	<div class="input-group">
+										      		<input type="text" class="form-control" id="" name="" placeholder="请填写身份证号">
+										      	</div>
+										    </div>
+									    </div>
+									    <div class="form-group col-group">
+										    <label for="projectTime" class="col-text control-label">身份证照片</label>
+										    <div class="col-input">
+										    	<div class="input-group" id="idPhoto">
+										    		<div class="certificatePhotoDiv"><div class="imgDiv"><img src="../../img/profile_small.jpg" /></div></div>
+										      		<div class="certificatePhotoDiv defaultImg"><div class="imgDiv"><div><i class="icon icon-picture"></i>最多2张</div></div></div>
+										      		<div class="certificatePhotoText">(请上传身份证正反面照片)</div>
+										      	</div>
+										    </div>
+									    </div>
+									    <div class="form-group col-group">
+										    <label for="projectTime" class="col-text control-label">银行卡号</label>
+										    <div class="col-input">
+										    	<div class="input-group">
+										      		<input type="text" class="form-control" id="" name="" placeholder="请填写银行卡号">
+										      	</div>
+										    </div>
+									    </div>
+									    <div class="form-group col-group">
+										    <label for="projectTime" class="col-text control-label">开户行地址</label>
+										    <div class="col-input">
+										    	<div class="input-group">
+										      		<input type="text" class="form-control" id="" name="" placeholder="请填写开户行地址">
+										      	</div>
+										    </div>
+									    </div>
+									    <div class="form-group col-group">
+										    <label for="projectTime" class="col-text control-label">银行卡照片</label>
+										    <div class="col-input">
+										    	<div class="input-group" id="bankcardPhoto">
+										    		<div class="certificatePhotoDiv"><div class="imgDiv"><img src="../../img/profile_small.jpg" /></div></div>
+										      		<div class="certificatePhotoDiv defaultImg"><div class="imgDiv"><div><i class="icon icon-picture"></i>最多2张</div></div></div>
+										      		<div class="certificatePhotoText">(请上传银行卡正反面照片)</div>
+										      	</div>
+										    </div>
+									    </div>
+								    </div>
+	
+									<div class="personnelBox">
+										<div class="form-group col-group">
+										    <label for="projectTime" class="col-text control-label"><span class="text-red m-r-5">*</span>账号类型</label>
+										    <div class="col-input">
+										    	<div class="input-group dropBox">
+										      		<input type="text" class="form-control form-select" id="userAccount" name="userAccount" placeholder="请选择账号类型" required data-msg-required="账号类型不能为空">
+										      		<span class="input-group-addon select"><i class="icon icon-sort-down"></i></span>
+										    		<div class="selectBox generalSelect" id="divSelect" >
+										    			<ul id="selectContent" class="selectContent">
+														    <li>总管理员</li>
+														    <li>销售主管</li>
+														    <li>人事经理</li>
+														    <li>财务总监</li>
+														    <li>办事员</li>
+														    <li>采购员</li>
+													    </ul>
+													</div>
+										      	</div>
+										    </div>
+									    </div>
+									    <div class="form-group col-group">
+										    <label for="projectTime" class="col-text control-label"><span class="text-red m-r-5">*</span>登录密码</label>
+										    <div class="col-input">
+										    	<div class="input-group">
+										      		<input type="text" class="form-control" id="" name="" placeholder="请填写登录密码" required data-msg-required="登录密码不能为空">
+										      	</div>
+										    </div>
+									    </div>
+									</div>
+								    
+								    <div class="form-group col-group">						    	
+									    <div class="text-right m-t-30">
+									    	<button type="submit" class="btn btn-default" onclick="">取消</button>
+									      <button type="submit" class="btn btn-success" onclick="">保存</button>
+									    </div>
+								    </div>
+								</form>
+															
+							</div>
+													
+						</div>
+					</div>
+				</div>
+				
+			</div>
+			
+		</div>				
+		
+		
+		<!-- 切换账号Modal -->
+		<div class="modal fade" id="switchAccModal" tabindex="-1" role="dialog" aria-labelledby="myswitchAcc">
+			<div class="middle">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+							<h4 class="modal-title" id="myswitchAcc">切换账号</h4>
+						</div>
+						<div class="modal-body">
+							<table class="table">
+						      	<thead>
+							        <tr>							       
+							          	<th>序号</th>
+							          	<th>用户名</th>
+							          	<th>账号类型</th>
+							          	<th class="checkStyle"></th>
+							        </tr>
+						      	</thead>
+						      	<tbody>
+							        <tr>							          
+							          	<th scope="row">1</th>
+							          	<td>Otto</td>
+							          	<td>销售人员</td>
+							          	<td>
+							          		<div class="checkOne">
+							          			<i class="icon-ok"></i>
+							          		</div>
+							          	</td>
+							        </tr>
+							        <tr>							          
+							          	<th scope="row">2</td>
+							          	<td>Thornton</td>
+							          	<td>会计</td>
+							          	<td>
+							          		<div class="checkOne">
+							          			<i class="icon-ok"></i>
+							          		</div>
+							          	</td>
+							        </tr>
+							        <tr>							          
+							          	<th scope="row">3</th>
+							          	<td>the Bird</td>
+							          	<td>财务总监</td>
+							          	<td>
+							          		<div class="checkOne">
+							          			<i class="icon-ok"></i>
+							          		</div>
+							          	</td>
+							        </tr>
+						      	</tbody>
+						    </table>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+							<button type="button" class="btn btn-success">确定</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 注销Modal -->
+		<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="mylogout">
+			<div class="middle">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+							<h4 class="modal-title" id="mylogout">注销</h4>
+						</div>
+						<div class="modal-body">
+							您确定要退出吗？
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+							<button type="button" class="btn btn-success" onclick="logout();">确定</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	
+    <script type="text/javascript" src="../../js/plugin/jquery-3.1.1.js" ></script>
+	<script type="text/javascript" src="../../js/plugin/bootstrap.min.js"></script>
+	<script type="text/javascript" src="../../js/plugin/jquery.nicescroll.js"></script>
+	<script type="text/javascript" src="../../js/plugin/jquery.validate.js"></script>
+	<script type="text/javascript" src="../../js/plugin/form.js"></script>
+	<script type="text/javascript" src="../../js/general.js"></script>
+	<script type="text/javascript" src="../../js/plugin/foundation-datepicker.js"></script>
+	<script type="text/javascript" src="../../js/plugin/foundation-datepicker.zh-CN.js"></script>
+	<script type="text/javascript" src="../../js/plugin/birthday.js" ></script>
+	<script type="text/javascript" src="../../js/createUser.js"></script>
+	<script>				
+		/*验证*/
+		MyValidator.init();
+		
+		
+		/*生日*/
+		$(function () { 
+		    $.ms_DatePicker({ 
+	            YearSelector: "#birthday-year", 
+	            MonthSelector: "#birthday-month", 
+	            DaySelector: "#birthday-day" 
+		    }); 
+		});
+						
+		
+		/*选择日期*/
+//		$('#projectTime').fdatepicker({
+//			format: 'yyyy-mm-dd hh:ii',
+//			pickTime: true
+//		});		
+		$('.selectTime input').fdatepicker({
+			format: 'yyyy-mm-dd'
+		});
+		$('.selectTime').click(function(){
+			$(this).children('input').focus();
+		});
+		
+		
+		/*基本信息验证通过后*/
+		$('#basicInf .form-horizontal').validate({
+			success : saveInf('#basicInf form','#basicInf input')
+		});
+		/*物业信息验证通过后*/
+		$('#propertyInf .form-horizontal').validate({
+			success : saveInf('#propertyInf form','#propertyInf input')
+		})
+	</script>
+</html>
